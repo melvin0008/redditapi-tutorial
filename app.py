@@ -12,7 +12,7 @@ app = Flask(__name__,static_url_path='')
 def index():
     return app.send_static_file('index.html')
 
-@app.route('/getdelta/<string:text1>/<string:text2>/', methods=['GET'])
+@app.route('/getsimilarity/<string:text1>/<string:text2>/', methods=['GET'])
 def getdelta(text1,text2):
      s = SequenceMatcher(lambda x: x == " ", text1, text2)
      r=s.ratio()
@@ -22,7 +22,7 @@ def getdelta(text1,text2):
 
 
 
-@app.route('/getsimilarity/<string:text1>/<string:text2>/', methods=['GET'])
+@app.route('/getdelta/<string:text1>/<string:text2>/', methods=['GET'])
 def getsimilarity(text1,text2):
        ret={}
        d=Differ()
